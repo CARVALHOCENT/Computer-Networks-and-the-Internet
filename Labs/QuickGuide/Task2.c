@@ -6,15 +6,19 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
+
 int main(void) {
+
   struct addrinfo hints, *res, *p;
   int errcode;
   char buffer[INET_ADDRSTRLEN];
   struct in_addr *addr;
+
   memset(&hints, 0, sizeof hints);
   hints.ai_family = AF_INET;      // IPv4
   hints.ai_socktype = SOCK_DGRAM; // Tipo UDP
   hints.ai_flags = AI_CANONNAME;
+
   if ((errcode = getaddrinfo("tejo.tecnico.ulisboa.pt", NULL, &hints, &res)) !=
       0)
     fprintf(stderr, "error: getaddrinfo: %s\n", gai_strerror(errcode));
