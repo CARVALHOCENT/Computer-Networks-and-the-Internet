@@ -70,7 +70,7 @@ int main(void) {
  */
 
 /*
- * ANSWERS TO QUESTIONS 8 TO 10 (TASK 7):
+ * ANSWERS TO QUESTIONS 8 TO 10:
  *
  * Question 8: Why is the write/read cycle needed for TCP?
  * Answer: Because TCP is a stream-oriented protocol, there is no guarantee that

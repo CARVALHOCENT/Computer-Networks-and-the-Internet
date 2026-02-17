@@ -35,7 +35,7 @@ int main(void) {
 }
 
 /*
- * ANSWERS TO QUESTIONS 6 TO 7 (TASK 6):
+ * ANSWERS TO QUESTIONS 6 TO 7:
  *
  * Question 6: Did you notice that the host name and port number are the same as
  * before? Answer: There is no problem in having two servers on the same port

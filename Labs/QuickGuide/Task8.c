@@ -1,7 +1,6 @@
 // Task8.c
 #include <netdb.h>
 #include <signal.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
@@ -46,6 +45,10 @@ int main(void) {
  * write().
  * Robustez: Essencial para programas de rede que devem continuar a correr
  * mesmo quando ocorrem erros de ligação.
+ *
+ */
+
+/*
  *
  * ANSWERS TO QUESTIONS:
  *
