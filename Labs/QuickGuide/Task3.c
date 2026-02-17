@@ -1,4 +1,4 @@
-// test.c
+// Task3.c
 #include <netdb.h>
 #include <stdlib.h>
 #include <string.h>
