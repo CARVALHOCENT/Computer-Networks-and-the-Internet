@@ -19,6 +19,7 @@ int main(void) {
   hints.ai_socktype = SOCK_DGRAM; // Tipo UDP
   hints.ai_flags = AI_CANONNAME;
 
+  /* getaddrinfo(ip/name, port, constraints, &result); */
   if ((errcode = getaddrinfo("tejo.tecnico.ulisboa.pt", NULL, &hints, &res)) !=
       0)
     fprintf(stderr, "error: getaddrinfo: %s\n", gai_strerror(errcode));

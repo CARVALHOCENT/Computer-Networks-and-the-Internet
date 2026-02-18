@@ -29,6 +29,7 @@ int main(void) {
   ptr = strcpy(buffer, "Hello!\n");
   nbytes = 7;
   nleft = nbytes;
+  // Ensure all bytes are send
   while (nleft > 0) {
     nwritten = write(fd, ptr, nleft);
     if (nwritten <= 0)
@@ -39,6 +40,7 @@ int main(void) {
 
   nleft = nbytes;
   ptr = buffer;
+  // Ensure all bytes are read
   while (nleft > 0) {
     nread = read(fd, ptr, nleft);
     if (nread == -1)

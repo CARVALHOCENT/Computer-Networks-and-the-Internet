@@ -15,6 +15,7 @@ int main(void) {
   ssize_t n;
   char buffer[128 + 1];
 
+  /* socket(ipv4/ipv6, udp/tcp, 0) */
   fd = socket(AF_INET, SOCK_DGRAM, 0); // UDP socket
   if (fd == -1)                        /*error*/
     exit(1);
@@ -27,11 +28,15 @@ int main(void) {
       0) /*error*/
     exit(1);
 
+  /* bytes_sent = sendto(fd, message, message_size, 0, receiver_adress,
+   * address_size) */
   n = sendto(fd, "Hello!\n", 7, 0, res->ai_addr, res->ai_addrlen);
   if (n == -1) /*error*/
     exit(1);
 
   addrlen = sizeof(addr);
+  /* bytes_received = recvdrom(fd, buffer, buffer_size, 0, sender_adress,
+   * adress_size) */
   n = recvfrom(fd, buffer, 128, 0, &addr,
                &addrlen); // blocks until datagram received
   if (n == -1)            /*error*/

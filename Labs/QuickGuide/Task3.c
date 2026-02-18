@@ -11,6 +11,7 @@ int main(void) {
   int fd, errcode;
   ssize_t n;
 
+  /* socket(ipv4/ipv6, udp/tcp, 0) */
   fd = socket(AF_INET, SOCK_DGRAM, 0); // UDP socket
   if (fd == -1)                        /*error*/
     exit(1);
@@ -25,6 +26,8 @@ int main(void) {
   if (errcode != 0) /*error*/
     exit(1);
 
+  /* bytes_sent = sendto(fd, message, message_size, 0, receiver_adress,
+   * address_size) */
   n = sendto(fd, "Hello!\n", 7, 0, res->ai_addr,
              res->ai_addrlen); // Enviar a Mensagem
 

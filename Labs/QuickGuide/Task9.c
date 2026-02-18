@@ -25,12 +25,14 @@ int main(void) {
   if ((errcode = getaddrinfo(NULL, "58001", &hints, &res)) != 0) /*error*/
     exit(1);
 
+  /* bind(socket_fd, adress, adress_size) */
   if (bind(fd, res->ai_addr, res->ai_addrlen) == -1) /*error*/
     exit(1);
 
   while (1) {
     addrlen = sizeof(addr);
 
+    /* Receive a message from some client */
     nread = recvfrom(fd, buffer, 128, 0, &addr, &addrlen);
     if (nread == -1) /*error*/
       exit(1);
@@ -50,7 +52,8 @@ int main(void) {
  *
  * Servidor Iterativo: Processa um pedido de cada vez num ciclo infinito.
  * bind(): O servidor reserva o porto 58001 para si, permitindo que clientes o
- * encontrem. AI_PASSIVE: Permite que o servidor aceite pacotes destinados a
+ * encontrem.
+ * AI_PASSIVE: Permite que o servidor aceite pacotes destinados a
  * qualquer IP da máquina local. Recvfrom/Sendto: O servidor descobre quem é o
  * cliente no momento em que recebe o pacote (via &addr).
  *

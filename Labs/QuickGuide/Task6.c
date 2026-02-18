@@ -23,6 +23,7 @@ int main(void) {
   if (n != 0) /*error*/
     exit(1);
 
+  /* connect(fd, server_address, server_address_size)*/
   n = connect(fd, res->ai_addr, res->ai_addrlen);
   if (n == -1) /*error*/
     exit(1);
